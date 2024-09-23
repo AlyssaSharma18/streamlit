@@ -12,8 +12,8 @@ st.dataframe(df)
 # Question 1 add a drop down for category
 
 option = st.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone"),
+    "Category",
+    ("Furniture", "Office Supplies", "Technology"),
 )
 
 st.write("You selected:", option)
