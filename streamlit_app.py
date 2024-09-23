@@ -17,6 +17,7 @@ option = st.selectbox(
 )
 
 st.write("You selected:", option)
+
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
 
