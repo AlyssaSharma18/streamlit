@@ -9,8 +9,18 @@ st.write("### Input Data and Examples")
 df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
+# Question 1 add a drop down for category
+
+option = st.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone"),
+)
+
+st.write("You selected:", option)
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
+
+
 
 # Now let's do the same graph where we do the aggregation first in Pandas... (this results in a chart with solid bars)
 st.dataframe(df.groupby("Category").sum())
