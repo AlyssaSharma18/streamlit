@@ -55,10 +55,6 @@ if not filtered_df.empty:
     # Display the line chart of sales for the selected items in the selected subcategory
     st.line_chart(sales_by_month)
 
-else:
-    st.write("No sales data available for the selected subcategory.")
-
-
 #Question 4
 
 # Display metrics for each selected subcategory
@@ -83,6 +79,12 @@ else:
                 st.metric(f"{subcat} - Total Sales", f"${total_sales:,.2f}")
                 st.metric(f"{subcat} - Total Profit", f"${total_profit:,.2f}")
                 st.metric(f"{subcat} - Profit Margin", f"{profit_margin:.2f}%")
+
+else:
+    st.write("No sales data available for the selected subcategory.")
+
+
+
 
 #Return to original code
 
