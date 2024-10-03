@@ -10,9 +10,9 @@ st.write("### Input Data and Examples")
 df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=["Order_Date"])
 st.dataframe(df)
 
-# Check if 'Sub-Category' column exists
-if 'Sub-Category' not in df.columns:
-    st.error("The 'Sub-Category' column is missing from the dataset.")
+# Check if 'Sub_Category' column exists
+if 'Sub_Category' not in df.columns:
+    st.error("The 'Sub_Category' column is missing from the dataset.")
 else:
     # Question 1: Add a dropdown for category
     option = st.selectbox(
@@ -39,8 +39,8 @@ else:
     st.line_chart(sales_by_month)
 
     # Bar chart of sales by subcategory for the selected category
-    st.write(f"### Sales by Sub-Category for {option}")
-    subcategory_sales = filtered_df.groupby('Sub-Category')['Sales'].sum().sort_values(ascending=False)
+    st.write(f"### Sales by Sub_Category for {option}")
+    subcategory_sales = filtered_df.groupby('Sub_Category')['Sales'].sum().sort_values(ascending=False)
     st.bar_chart(subcategory_sales)
 
     # Exclude non-numeric columns like 'Order_Date' from the aggregation
@@ -60,7 +60,7 @@ else:
 
     # Additional instructions or future additions can go here
     st.write("## Your additions")
-    st.write("### (1) Add a multi-select for Sub-Category in the selected Category")
+    st.write("### (1) Add a multi-select for Sub_Category in the selected Category")
     st.write("### (2) Show a line chart of sales for the selected items in (2)")
     st.write("### (3) Show three metrics for the selected items: total sales, total profit, and overall profit margin")
     st.write("### (4) Use the delta option in the overall profit margin metric to show the difference with the average profit margin across categories")
