@@ -60,8 +60,19 @@ if not filtered_df.empty:
     total_profit = filtered_df['Profit'].sum() if 'Profit' in filtered_df.columns else 0
     overall_profit_margin = (total_profit / total_sales * 100) if total_sales > 0 else 0
     #End calculations for question 4
+    
     # Display the line chart of sales for the selected items in the selected subcategory
     st.line_chart(sales_by_month)
+
+    # Back to Question 4
+    
+    # Metrics for total sales, total profit, and overall profit margin
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Total Sales", f"${total_sales:,.2f}")
+    col2.metric("Total Profit", f"${total_profit:,.2f}")
+    col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=None)  
+
+    # End Question 4
 
 else:
     st.write("No sales data available for the selected subcategory.")
