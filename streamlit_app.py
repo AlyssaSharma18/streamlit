@@ -35,6 +35,34 @@ options = st.multiselect(
 
 st.write("You selected:", options)
 
+#Question 3 
+
+# Filter the DataFrame based on selected category and subcategories
+filtered_df = df[df['Category'] == option]
+
+if options:
+    filtered_df = filtered_df[filtered_df['Sub-Category'].isin(options)]
+
+# Check if the filtered DataFrame is not empty
+if not filtered_df.empty:
+    # Ensure Order_Date is in datetime format and set as an index
+    filtered_df["Order_Date"] = pd.to_datetime(filtered_df["Order_Date"])
+    filtered_df.set_index("Order_Date", inplace=True)
+
+    # Group sales by month
+    sales_by_month = filtered_df.resample('M')['Sales'].sum()
+
+    # Display the line chart of sales for the selected items in the selected subcategory
+    st.line_chart(sales_by_month)
+
+else:
+    st.write("No sales data available for the selected subcategory.")
+
+
+
+
+#Return to original code
+
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
 
