@@ -59,20 +59,20 @@ if not filtered_df.empty:
 
 # Display metrics for each selected subcategory
 
-    # Display metrics for each selected subcategory
+# Display metrics for each selected subcategory
     if options:
-        cols = st.columns(len(options))  # Create a dynamic number of columns
+    cols = st.columns(len(options))  # Create a dynamic number of columns
 
-        for i, subcat in enumerate(options):
-            subcat_df = filtered_df[filtered_df['Sub_Category'] == subcat]
+    for i, subcat in enumerate(options):
+        subcat_df = filtered_df[filtered_df['Sub_Category'] == subcat]
             
-            # Calculate metrics for each subcategory
-            total_sales = subcat_df['Sales'].sum()
-            total_profit = subcat_df['Profit'].sum()
-            if total_sales > 0:
-                profit_margin = (total_profit / total_sales) * 100
-            else:
-                profit_margin = 0
+        # Calculate metrics for each subcategory
+        total_sales = subcat_df['Sales'].sum()
+        total_profit = subcat_df['Profit'].sum()
+        if total_sales > 0:
+            profit_margin = (total_profit / total_sales) * 100
+        else:
+            profit_margin = 0
             
             # Display metrics for the current subcategory
             with cols[i]:
