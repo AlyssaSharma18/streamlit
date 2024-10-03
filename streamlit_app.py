@@ -64,7 +64,11 @@ if not filtered_df.empty:
 
     # Question 5 calculations
     
+    # Calculate the overall average profit margin across all categories
+    total_sales_all = df['Sales'].sum()
+    total_profit_all = df['Profit'].sum() if 'Profit' in df.columns else 0
     overall_average_profit_margin = (total_profit_all / total_sales_all * 100) if total_sales_all > 0 else 0
+
     # Calculate the delta (difference) between the overall profit margin and the overall average profit margin
     profit_margin_delta = overall_profit_margin - overall_average_profit_margin
     
