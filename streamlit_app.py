@@ -62,6 +62,19 @@ else:
 #Question 4
 
 # Display metrics for each selected subcategory
+# Check if the filtered DataFrame is not empty
+if not filtered_df.empty:
+    # Ensure Order_Date is in datetime format and set as an index
+    filtered_df["Order_Date"] = pd.to_datetime(filtered_df["Order_Date"])
+    filtered_df.set_index("Order_Date", inplace=True)
+
+    # Group sales by month
+    sales_by_month = filtered_df.resample('M')['Sales'].sum()
+
+    # Display the line chart of sales for the selected items in the selected subcategory
+    st.line_chart(sales_by_month)
+
+    # Display metrics for each selected subcategory
     if options:
         cols = st.columns(len(options))  # Create a dynamic number of columns
 
@@ -81,8 +94,8 @@ else:
                 st.metric(f"{subcat} - Total Sales", f"${total_sales:,.2f}")
                 st.metric(f"{subcat} - Total Profit", f"${total_profit:,.2f}")
                 st.metric(f"{subcat} - Profit Margin", f"{profit_margin:.2f}%")
-    else:
-        st.write("No sales data available for the selected subcategory.")
+else:
+    st.write("No sales data available for the selected subcategory.")
 
 #Return to original code
 
