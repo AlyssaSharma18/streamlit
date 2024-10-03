@@ -56,10 +56,16 @@ if not filtered_df.empty:
     # Calculate total sales for the selected category and subcategories
     total_sales = filtered_df['Sales'].sum()
 
-    # (Optional) You can also add calculations for profit and profit margin if those columns exist in your dataset.
+    # Add calculations for profit and profit margin if those columns exist in your dataset.
     total_profit = filtered_df['Profit'].sum() if 'Profit' in filtered_df.columns else 0
     overall_profit_margin = (total_profit / total_sales * 100) if total_sales > 0 else 0
+    
     #End calculations for question 4
+
+    # Question 5 calculations
+    
+    # Calculate the delta (difference) between the overall profit margin and the overall average profit margin
+    profit_margin_delta = overall_profit_margin - overall_average_profit_margin
     
     # Display the line chart of sales for the selected items in the selected subcategory
     st.line_chart(sales_by_month)
@@ -73,6 +79,7 @@ if not filtered_df.empty:
     col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=None)  
 
     # End Question 4
+
 
 else:
     st.write("No sales data available for the selected subcategory.")
