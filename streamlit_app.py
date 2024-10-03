@@ -81,8 +81,8 @@ else:
                 st.metric(f"{subcat} - Total Sales", f"${total_sales:,.2f}")
                 st.metric(f"{subcat} - Total Profit", f"${total_profit:,.2f}")
                 st.metric(f"{subcat} - Profit Margin", f"{profit_margin:.2f}%")
-else:
-    st.write("No sales data available for the selected subcategory.")
+    else:
+        st.write("No sales data available for the selected subcategory.")
 
 #Return to original code
 
