@@ -55,31 +55,6 @@ if not filtered_df.empty:
     # Display the line chart of sales for the selected items in the selected subcategory
     st.line_chart(sales_by_month)
 
-#Question 4
-
-# Display metrics for each selected subcategory
-
-# Display metrics for each selected subcategory
-    if options:
-        cols = st.columns(len(options))  # Create a dynamic number of columns
-
-    for i, subcat in enumerate(options):
-        subcat_df = filtered_df[filtered_df['Sub_Category'] == subcat]
-            
-        # Calculate metrics for each subcategory
-        total_sales = subcat_df['Sales'].sum()
-        total_profit = subcat_df['Profit'].sum()
-        if total_sales > 0:
-            profit_margin = (total_profit / total_sales) * 100
-        else:
-            profit_margin = 0
-            
-            # Display metrics for the current subcategory
-            with cols[i]:
-                st.metric(f"{subcat} - Total Sales", f"${total_sales:,.2f}")
-                st.metric(f"{subcat} - Total Profit", f"${total_profit:,.2f}")
-                st.metric(f"{subcat} - Profit Margin", f"{profit_margin:.2f}%")
-
 else:
     st.write("No sales data available for the selected subcategory.")
 
