@@ -85,8 +85,8 @@ if not filtered_df.empty:
     col3.metric(
         "Overall Profit Margin", 
         f"{overall_profit_margin:.2f}%", 
-        delta=f"{profit_margin_delta:.2f}%"
-    ) 
+        delta=f"{profit_margin_delta:.2f}%"  # Format delta correctly
+    )   
 
     # End Question 4
 
