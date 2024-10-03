@@ -61,7 +61,7 @@ if not filtered_df.empty:
 
 # Display metrics for each selected subcategory
     if options:
-    cols = st.columns(len(options))  # Create a dynamic number of columns
+        cols = st.columns(len(options))  # Create a dynamic number of columns
 
     for i, subcat in enumerate(options):
         subcat_df = filtered_df[filtered_df['Sub_Category'] == subcat]
