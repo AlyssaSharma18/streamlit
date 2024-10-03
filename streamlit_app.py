@@ -52,6 +52,14 @@ if not filtered_df.empty:
     # Group sales by month
     sales_by_month = filtered_df.resample('M')['Sales'].sum()
 
+    # Do the calculations for question 4
+    # Calculate total sales for the selected category and subcategories
+    total_sales = filtered_df['Sales'].sum()
+
+    # (Optional) You can also add calculations for profit and profit margin if those columns exist in your dataset.
+    total_profit = filtered_df['Profit'].sum() if 'Profit' in filtered_df.columns else 0
+    overall_profit_margin = (total_profit / total_sales * 100) if total_sales > 0 else 0
+    #End calculations for question 4
     # Display the line chart of sales for the selected items in the selected subcategory
     st.line_chart(sales_by_month)
 
