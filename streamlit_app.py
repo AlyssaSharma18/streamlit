@@ -62,6 +62,11 @@ else:
 # Question 4
 for i in options:
     st.write(i)
+
+
+for i in range(len(options)):
+    st.write(i)
+    
 col1, col2, col3 = st.columns(3)
 col1.metric("Temperature", "70 °F", "1.2 °F")
 col2.metric("Wind", "9 mph", "-8%")
