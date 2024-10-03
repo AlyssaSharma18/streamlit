@@ -78,14 +78,6 @@ else:
     st.write("No sales data available for the selected subcategory.")
 
 
-# Question 4
-
-col1, col2, col3 = st.columns(3)
-
-col1.metric("Total Sales", "70 °F", "1.2 °F")
-col2.metric("Total Profit", "9 mph", "-8%")
-col3.metric("Overall Profit Margin", "86%", "4%")
-
 #Return to original code
 
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
