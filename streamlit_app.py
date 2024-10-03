@@ -9,6 +9,15 @@ st.write("### Input Data and Examples")
 df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
+# Question 1
+
+option = st.selectbox(
+    "Category:",
+    ("Furniture", "Office Supplies", "Technology"),
+)
+
+st.write("You selected:", option)
+
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
 
