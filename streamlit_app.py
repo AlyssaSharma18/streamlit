@@ -41,7 +41,7 @@ st.write("You selected:", options)
 filtered_df = df[df['Category'] == option]
 
 if options:
-    filtered_df = filtered_df[filtered_df['Sub-Category'].isin(options)]
+    filtered_df = filtered_df[filtered_df['Sub_Category'].isin(options)]
 
 # Check if the filtered DataFrame is not empty
 if not filtered_df.empty:
