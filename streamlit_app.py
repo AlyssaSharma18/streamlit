@@ -35,8 +35,8 @@ st.dataframe(sales_by_month)
 st.line_chart(sales_by_month)
 
 # Bar chart of sales by subcategory for the selected category
-st.write(f"### Sales by Sub-Category for {option}")
-subcategory_sales = filtered_df.groupby('Sub-Category')['Sales'].sum().sort_values(ascending=False)
+st.write(f"### Sales by Sub_Category for {option}")
+subcategory_sales = filtered_df.groupby('Sub_Category')['Sales'].sum().sort_values(ascending=False)
 st.bar_chart(subcategory_sales)
 
 # Now let's do the same graph where we do the aggregation first in Pandas (for solid bars)
@@ -55,7 +55,7 @@ st.line_chart(overall_sales_by_month)
 
 # Additional instructions or future additions can go here
 st.write("## Your additions")
-st.write("### (1) Add a multi-select for Sub-Category in the selected Category")
+st.write("### (1) Add a multi-select for Sub_Category in the selected Category")
 st.write("### (2) Show a line chart of sales for the selected items in (2)")
 st.write("### (3) Show three metrics for the selected items: total sales, total profit, and overall profit margin")
 st.write("### (4) Use the delta option in the overall profit margin metric to show the difference with the average profit margin across categories")
