@@ -18,6 +18,23 @@ option = st.selectbox(
 
 st.write("You selected:", option)
 
+# Question 2
+
+# Define subcategories for each category
+subcategory_options = {
+    "Furniture": ["Bookcases", "Chairs", "Tables", "Furnishings", "Art"],
+    "Office Supplies": ["Labels", "Storage", "Binders", "Appliances", "Paper", "Envelopes", "Fasteners"],
+    "Technology": ["Phones", "Accessories"],
+}
+
+# Multiselect for subcategories based on the selected category
+options = st.multiselect(
+    "Subcategory:",
+    subcategory_options[option],  # Get subcategories for the selected category
+)
+
+st.write("You selected:", options)
+
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
 
